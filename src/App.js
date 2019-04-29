@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import BeerItem from "./components/BeerItem";
 import Axios from "axios";
-import { List } from 'semantic-ui-react';
+import { List } from "semantic-ui-react";
 
 class App extends Component {
   constructor() {
@@ -21,7 +21,7 @@ class App extends Component {
       })
     
     Axios
-    .get("https://restcountries.eu/rest/v2/all")
+    .get("https://restcountries.eu/rest/v2/region/europe")
     .then(response => {
       const Countries = response.data;
       this.setState({ countries: Countries });
@@ -29,26 +29,25 @@ class App extends Component {
   }
 
   getRandom() {
-    return Math.floor((Math.random() * 249) + 1);
+    return Math.floor((Math.random() * 20) + 1);
   }
 
   render() {
     return (
-      <List horizontal>
-        {this.state.countries && this.state.data && this.state.data.map(element => (
-          <List.Item>
-            <List.Content>
-                <BeerItem 
-                  name={element.name} 
-                  rating={element.abv}
-                  image={element.image_url}
-                  country={this.state.countries[this.getRandom()].name}
-                  onClick={(() => console.log(element.description))}
-                />
-            </List.Content>
-          </List.Item>
-        ))}
-      </List>
+        <List horizontal>
+          {this.state.countries && this.state.data && this.state.data.map(element => (
+            <List.Item>
+              <List.Content>
+                  <BeerItem 
+                    name={element.name}   
+                    image={element.image_url}
+                    country={this.state.countries[this.getRandom()]}
+                    onClick={(() => console.log(element.description))}
+                  />
+              </List.Content>
+            </List.Item>
+          ))}
+        </List>
     );
   }
 }
