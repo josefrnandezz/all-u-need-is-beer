@@ -14,14 +14,17 @@ const Container = styled(Card) `
   heigth: auto;
 `;
 
-const BeerItem = ({ name, onClick, image, country }) => (
+const BeerItem = ({ name, onClick, image, country, price, rating }) => (
   <Container onClick={onClick} color="yellow">
     <Image src={image} />
     <Card.Content>
       <Card.Header>{name}</Card.Header>
       <Card.Meta>
-        <Rating icon="star" defaultRating={Math.floor((Math.random() * 10) + 1)} maxRating={5} />
+        <Rating disabled="true" icon="star" defaultRating={rating} maxRating={5} />
       </Card.Meta>
+      <Card.Description>
+        <b>{price} $</b>
+      </Card.Description>
     </Card.Content>
     <Card.Content extra>
       <a>

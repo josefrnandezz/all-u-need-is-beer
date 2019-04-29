@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   getRandom() {
-    return Math.floor((Math.random() * 20) + 1);
+    return Math.floor((Math.random() * 25) + 1);
   }
 
   render() {
@@ -41,6 +41,8 @@ class App extends Component {
                   <BeerItem 
                     name={element.name}   
                     image={element.image_url}
+                    rating={Math.floor((Math.random() * 5) + 1)}
+                    price={Math.floor(Math.random() * (1000 - 100) + 500) / (100)}
                     country={this.state.countries[this.getRandom()]}
                     onClick={(() => console.log(element.description))}
                   />
