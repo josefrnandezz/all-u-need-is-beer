@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import BeerItem from "./components/BeerItem";
+import MyHeader from "./components/Header";
+import MyFooter from "./components/Footer"
 import Axios from "axios";
 import { List } from "semantic-ui-react";
 
@@ -28,12 +30,15 @@ class App extends Component {
     })
   }
 
-  getRandom() {
-    return Math.floor((Math.random() * 25) + 1);
+  getCountry() {
+    return Math.floor((Math.random() * 25));
   }
 
   render() {
     return (
+      <div className="main">
+        <MyHeader name='All U Need Is Beer' />
+        
         <List horizontal>
           {this.state.countries && this.state.data && this.state.data.map(element => (
             <List.Item>
@@ -43,13 +48,16 @@ class App extends Component {
                     image={element.image_url}
                     rating={Math.floor((Math.random() * 5) + 1)}
                     price={Math.floor(Math.random() * (1000 - 100) + 500) / (100)}
-                    country={this.state.countries[this.getRandom()]}
+                    country={this.state.countries[this.getCountry()]}
                     onClick={(() => console.log(element.description))}
                   />
               </List.Content>
             </List.Item>
           ))}
         </List>
+
+        <MyFooter />
+      </div>
     );
   }
 }

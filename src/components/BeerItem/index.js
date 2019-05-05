@@ -9,16 +9,24 @@ const Image = styled.img`
   margin: auto;
 `;
 
-const Container = styled(Card) `
+const Container = styled(Card)`
   width: auto;
   heigth: auto;
 `;
+
+function shortenName (name) {
+  if (name.length > 25) {
+    name = name.substr(0, 25) + " ...";
+  }
+
+  return name;
+}
 
 const BeerItem = ({ name, onClick, image, country, price, rating }) => (
   <Container onClick={onClick} color="yellow">
     <Image src={image} />
     <Card.Content>
-      <Card.Header>{name}</Card.Header>
+      <Card.Header>{shortenName(name)}</Card.Header>
       <Card.Meta>
         <Rating disabled="true" icon="star" defaultRating={rating} maxRating={5} />
       </Card.Meta>
