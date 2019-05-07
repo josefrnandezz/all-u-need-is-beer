@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from '../../beerlogo.png';
 import { 
   Container,
   Image,
@@ -14,6 +13,7 @@ const menuStyle = {
   marginBottom: '1em',
   marginTop: '1m',
   transition: 'box-shadow 0.5s ease, padding 0.5s ease',
+  backgroundColor: '#fff',
 }
 
 const fixedMenuStyle = {
@@ -58,7 +58,7 @@ class MyHeader extends Component {
           >
             <Container text>
               <Menu.Item>
-                <Image src={logo} size="mini"/>
+                <Image src="https://pngimage.net/wp-content/uploads/2018/05/beer-draw-png.png" size="mini"/>
               </Menu.Item>
               <Menu.Item header as="h2">{this.props.name}</Menu.Item>
             </Container>

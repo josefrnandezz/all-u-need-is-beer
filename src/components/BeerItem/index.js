@@ -31,7 +31,7 @@ const BeerItem = ({ name, onClick, image, country, price, rating }) => (
         <Rating disabled="true" icon="star" defaultRating={rating} maxRating={5} />
       </Card.Meta>
       <Card.Description>
-        <b>{price} $</b>
+        <b>{price} €</b>
       </Card.Description>
     </Card.Content>
     <Card.Content extra>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
 import styled from 'styled-components';
 import { 
     Container,
@@ -15,7 +14,8 @@ const Image = styled.img`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 8%;
+    width: 35px;
+    heigth: 60px;
 `;
 
 class MyFooter extends Component {
@@ -35,7 +35,7 @@ class MyFooter extends Component {
                         </Grid.Row>
                         </Grid>
                         <Divider inverted section />
-                        <Image src={logo}/>
+                        <Image src="https://pngimage.net/wp-content/uploads/2018/05/beer-draw-png.png"/>
                         <List horizontal inverted divided link size='small'>
                         <List.Item as='a' href='#'>
                             Site Map
