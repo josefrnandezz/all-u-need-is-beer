@@ -1,30 +1,100 @@
 import React from "react";
 import styled from 'styled-components';
-import { Divider, Header, Icon, Button, Table, Segment, Grid } from 'semantic-ui-react';
+import { Divider, Header, Icon, Button, Table, Segment, Grid, Container } from 'semantic-ui-react';
+import DropdownControlled from "../components/DropdownControlled";
 
 const Image = styled.img`
-    margin-left: 100px;
+    margin-left: 120px;
     margin-top: 75px;
     height: 400px;
     width: 150px;
-    margin: auto
 `;
+
+const MyContainer = styled(Container)`
+    margin: auto;
+`;
+
+function getArrivalDate() {
+    var today = new Date();
+    var dd = String(today.getDate() + 5).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+
+    switch (mm) {
+        case "01":
+            mm = "January";
+            break;
+
+        case "02":
+            mm = "February";
+            break;
+
+        case "03":
+            mm = "March";
+            break;
+
+        case "04":
+            mm = "April";
+            break;
+
+        case "05": 
+            mm = "May";
+            break;
+
+        case "06":
+            mm = "June";
+            break;
+
+        case "07":
+            mm = "July";
+            break;
+
+        case "08":
+            mm = "August";
+            break;
+
+        case "09":
+            mm = "September";
+            break;
+
+        case "10":
+            mm = "October";
+            break;
+
+        case "11":
+            mm = "November";
+            break;
+            
+        case "12":
+            mm = "December";
+            break;
+        
+        default:
+            mm = null;
+            break;
+    }       
+
+    today = mm + ', ' + dd;
+    return today;
+}
 
 const BeerDetail = ({
   location: {
-    state: { beer, country }
+    state: { beer, country, price, delay }
   },
   history
 }) => (
   <div>
+    {window.scrollTo(0,0)}
     <Segment>
-        <Grid columns={2} relaxed='very' >
-            <Grid.Column>
+        <Grid fluid columns={3} relaxed='very' divided>
+            <Grid.Column width={3.5}>
                 <p>
                     <Image src={beer.image_url} />
                 </p>
             </Grid.Column>
             <Grid.Column>
+                <h1 align="center">{beer.name}</h1>
+                <br></br>
                 <React.Fragment>
                     <Divider horizontal>
                         <Header as='h4'>
@@ -63,11 +133,21 @@ const BeerDetail = ({
                     </Table>
                 </React.Fragment>
             </Grid.Column>
+            <Grid.Column>
+                <MyContainer>
+                    <p>
+                        This item will ships to Spain on {getArrivalDate()}
+                    </p>
+                    <Header as="h2" color="green">In Stock</Header>
+                        <Segment>
+                            <h3>Price: {price}€/unit</h3>
+                            <DropdownControlled price={price}/>
+                        </Segment>
+                </MyContainer>
+            </Grid.Column>
         </Grid>
-        <Divider vertical/>
     </Segment>
-
-    <Button onClick={history.goBack}>Volver </ Button>
+    <Button onClick={history.goBack}>Go Back</Button>
   </div>
 );
 
