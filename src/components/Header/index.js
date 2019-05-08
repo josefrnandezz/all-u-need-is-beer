@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../../assets/img/beerlogo.png"
+import logo from "../../beerlogo.png"
 import { 
   Container,
   Image,
