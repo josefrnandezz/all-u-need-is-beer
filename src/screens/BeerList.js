@@ -22,7 +22,8 @@ class BeerList extends Component {
     super();
     this.state = {
       beers: null,
-      beerInfo: null
+      beerInfo: null,
+      filter: ""
     };
   }
 
@@ -37,15 +38,23 @@ class BeerList extends Component {
 
   render() {
     const { history } = this.props;
-    const rows =
-      this.state.beerInfo && this.state.beers && _.chunk(this.state.beers, 4);
+
+    const filteredInfo =
+      this.state.beers &&
+      this.state.beers.filter(beer =>
+        beer.name.toLowerCase().includes(this.state.filter.toLowerCase())
+      );
+
+    const rows = filteredInfo && _.chunk(filteredInfo, 4);
 
     return (
       <div>
         <SearchContainer>
-          <Input 
-            icon={{ name: 'search', circular: true, link: true }}
-            placeholder='Search...'
+        <Input
+            icon={{ name: "search", circular: true, link: true }}
+            placeholder="Search..."
+            onChange={(event, { value }) => this.setState({ filter: value })}
+            value={this.state.filter}
           />
         </SearchContainer>
         <Container>
