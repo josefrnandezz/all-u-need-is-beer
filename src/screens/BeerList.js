@@ -20,15 +20,15 @@ class BeerList extends Component {
   constructor() {
     super();
     this.state = {
-      data: null,
+      beers: null,
       countries: null
     };
   }
 
   componentDidMount() {
     Axios.get("https://api.punkapi.com/v2/beers").then(response => {
-      const Data = response.data;
-      this.setState({ data: Data });
+      const Beers = response.data;
+      this.setState({ beers: Beers });
     });
 
     Axios.get("https://restcountries.eu/rest/v2/region/europe").then(
@@ -46,7 +46,7 @@ class BeerList extends Component {
   render() {
     const { history } = this.props;
     const rows =
-      this.state.countries && this.state.data && _.chunk(this.state.data, 4);
+      this.state.countries && this.state.beers && _.chunk(this.state.beers, 4);
 
     return (
       <div>
@@ -59,7 +59,7 @@ class BeerList extends Component {
               <List horizontal>
                 {row.map(element => {
                   const country = this.state.countries[this.getCountry()];
-                  const price = Math.floor(Math.random() * (1000 - 100) + 500) / 100;
+                  const price = Math.floor(Math.random() * (400 - 100) + 120) / 100;
                   return (
                     <List.Item>
                       <List.Content>
@@ -73,7 +73,7 @@ class BeerList extends Component {
                             history.push(`/beers/${element.id}`, {
                               country,
                               beer: element,
-                              price
+                              price,
                             })
                           }
                         />

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import logo from "../../assets/img/beerlogo.png"
 import { 
   Container,
   Image,
@@ -58,7 +59,7 @@ class MyHeader extends Component {
           >
             <Container text>
               <Menu.Item>
-                <Image src="https://pngimage.net/wp-content/uploads/2018/05/beer-draw-png.png" size="mini"/>
+                <Image src={logo} size="mini"/>
               </Menu.Item>
               <Menu.Item header as="h2">{this.props.name}</Menu.Item>
             </Container>

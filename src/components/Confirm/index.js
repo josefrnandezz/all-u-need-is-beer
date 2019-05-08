@@ -6,6 +6,7 @@ class MyConfirm extends Component {
     open: false,
     content: "BUY NOW",
     active: false,
+    text: "",
   }
 
   open = () => this.setState({ open: true })
@@ -22,6 +23,9 @@ class MyConfirm extends Component {
   handleConfirmClick = () => {
         this.setState({ content: "BOUGHT"});
         this.setState({ active: true });
+        this.setState({ 
+          text: "Thank you for buying " + this.props.value + " item/s for the price of " + this.props.price + " € !"
+        })
         this.close();
   }
 
@@ -36,6 +40,7 @@ class MyConfirm extends Component {
             onCancel={this.close}
             onConfirm={this.handleConfirmClick}
         />
+        <h5>{this.state.text}</h5>
       </div>
     )
   }

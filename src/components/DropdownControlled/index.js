@@ -3,6 +3,7 @@ import MyConfirm from "../Confirm";
 import { Dropdown, Segment } from 'semantic-ui-react'
 
 const options = [
+    { key: 0, text: '0', value: 0 },
     { key: 1, text: '1', value: 1 },
     { key: 2, text: '2', value: 2 },
     { key: 3, text: '3', value: 3 },
@@ -20,6 +21,7 @@ export default class DropdownControlled extends Component {
       super(props);
       this.state = {
           value: null,
+          disabled: false,
       }
   }
 
@@ -41,7 +43,7 @@ export default class DropdownControlled extends Component {
         />
         <Segment>
             <h2>Total: {(this.props.price * value).toFixed(2)} €</h2>
-            <MyConfirm value={value}/>
+            <MyConfirm value={value} price={(this.props.price * value).toFixed(2)}/>
         </Segment>
     </div>
     )

@@ -79,7 +79,7 @@ function getArrivalDate() {
 
 const BeerDetail = ({
   location: {
-    state: { beer, country, price, delay }
+    state: { beer, country, price }
   },
   history
 }) => (
@@ -136,13 +136,13 @@ const BeerDetail = ({
             <Grid.Column>
                 <MyContainer>
                     <p>
-                        This item will ships to Spain on {getArrivalDate()}
+                        This item will ship to Spain on {getArrivalDate()}
                     </p>
                     <Header as="h2" color="green">In Stock</Header>
-                        <Segment>
-                            <h3>Price: {price}€/unit</h3>
-                            <DropdownControlled price={price}/>
-                        </Segment>
+                    <Segment>
+                        <h3>Price: {price}€/unit</h3>
+                        <DropdownControlled price={price}/>
+                    </Segment>
                 </MyContainer>
             </Grid.Column>
         </Grid>
