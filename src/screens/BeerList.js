@@ -4,6 +4,7 @@ import BeerItem from "../components/BeerItem";
 import Axios from "axios";
 import _ from "lodash";
 import { List, Search } from "semantic-ui-react";
+import BeerInfo from "../BeerInfo.js";
 
 const Container = styled.div`
   display: flex;

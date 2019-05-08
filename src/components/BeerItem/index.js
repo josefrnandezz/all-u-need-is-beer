@@ -36,8 +36,8 @@ const BeerItem = ({ name, onClick, image, country, price, rating }) => (
     </Card.Content>
     <Card.Content extra>
       <p>
-        <Flag name={country.alpha2Code.toLowerCase()} />
-        {country.name}
+        <Flag name={country.code} />
+        {country.country_name}
       </p>
     </Card.Content>
   </Container>

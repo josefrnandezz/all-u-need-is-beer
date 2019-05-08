@@ -115,7 +115,7 @@ const BeerDetail = ({
                         <Table.Body>
                             <Table.Row>
                             <Table.Cell width={2}>Origin</Table.Cell>
-                            <Table.Cell>{country.name}</Table.Cell>
+                            <Table.Cell>{country.country_name}</Table.Cell>
                             </Table.Row>
                             <Table.Row>
                             <Table.Cell >Alcohol by Volume</Table.Cell>
