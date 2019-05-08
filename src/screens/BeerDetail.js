@@ -14,9 +14,9 @@ const MyContainer = styled(Container)`
     margin: auto;
 `;
 
-function getArrivalDate() {
+function getArrivalDate(delay) {
     var today = new Date();
-    var dd = String(today.getDate() + 5).padStart(2, '0');
+    var dd = String(today.getDate() + delay).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 
     switch (mm) {
@@ -136,7 +136,7 @@ const BeerDetail = ({
             <Grid.Column>
                 <MyContainer>
                     <p>
-                        This item will ship to Spain on {getArrivalDate()}
+                        This item will ship to Spain on {getArrivalDate(beerInfo.delay)}
                     </p>
                     <Header as="h2" color="green">In Stock</Header>
                     <Segment>

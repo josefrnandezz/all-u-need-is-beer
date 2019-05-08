@@ -31,7 +31,7 @@ export default class DropdownControlled extends Component {
 
   render() {
     const { value } = this.state
-
+    
     return (
     <div>
         <Dropdown
