@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BeerItem from "../components/BeerItem";
 import Axios from "axios";
 import _ from "lodash";
-import { List, Search } from "semantic-ui-react";
+import { List, Input } from "semantic-ui-react";
 import BeerInfo from "../BeerInfo.js";
 
 const Container = styled.div`
@@ -22,7 +22,7 @@ class BeerList extends Component {
     super();
     this.state = {
       beers: null,
-      countries: null
+      beerInfo: null
     };
   }
 
@@ -32,49 +32,39 @@ class BeerList extends Component {
       this.setState({ beers: Beers });
     });
 
-    Axios.get("https://restcountries.eu/rest/v2/region/europe").then(
-      response => {
-        const Countries = response.data;
-        this.setState({ countries: Countries });
-      }
-    );
-  }
-
-  getCountry() {
-    return Math.floor(Math.random() * 25);
+    this.setState({ beerInfo: BeerInfo });
   }
 
   render() {
     const { history } = this.props;
     const rows =
-      this.state.countries && this.state.beers && _.chunk(this.state.beers, 4);
+      this.state.beerInfo && this.state.beers && _.chunk(this.state.beers, 4);
 
     return (
       <div>
         <SearchContainer>
-          <Search />
+          <Input 
+            icon={{ name: 'search', circular: true, link: true }}
+            placeholder='Search...'
+          />
         </SearchContainer>
         <Container>
           {rows &&
             rows.map(row => (
               <List horizontal>
                 {row.map(element => {
-                  const country = this.state.countries[this.getCountry()];
-                  const price = Math.floor(Math.random() * (400 - 100) + 120) / 100;
+                  const beerInfo = this.state.beerInfo[element.id];
                   return (
                     <List.Item>
                       <List.Content>
                         <BeerItem
                           name={element.name}
                           image={element.image_url}
-                          rating={Math.floor(Math.random() * 5 + 2)}
-                          price={price}
-                          country={country}
+                          beerInfo={beerInfo}
                           onClick={() =>
                             history.push(`/beers/${element.id}`, {
-                              country,
+                              beerInfo,
                               beer: element,
-                              price,
                             })
                           }
                         />

@@ -21,9 +21,11 @@ const BeerInfo = [
     {country_name: "Spain", code: "es", price: 1.87, rating: 3},
     {country_name: "Belgium", code: "be", price: 2.23, rating: 5},
     {country_name: "Croatia", code: "hr", price: 2.64, rating: 4},
+    {country_name: "Estonia", code: "ee", price: 2.14, rating: 2},
     {country_name: "Greece", code: "gr", price: 2.40, rating: 5},
     {country_name: "Italy", code: "it", price: 3.50, rating: 4},
     {country_name: "China", code: "cn", price: 6.41, rating: 3},
+    
 ];
 
 export default BeerInfo;

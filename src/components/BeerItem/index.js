@@ -22,22 +22,22 @@ function shortenName (name) {
   return name;
 }
 
-const BeerItem = ({ name, onClick, image, country, price, rating }) => (
+const BeerItem = ({ name, onClick, image, beerInfo }) => (
   <Container onClick={onClick} color="yellow">
     <Image src={image} />
     <Card.Content>
       <Card.Header>{shortenName(name)}</Card.Header>
       <Card.Meta>
-        <Rating disabled="true" icon="star" defaultRating={rating} maxRating={5} />
+        <Rating disabled="true" icon="star" defaultRating={beerInfo.rating} maxRating={5} />
       </Card.Meta>
       <Card.Description>
-        <b>{price} €</b>
+        <b>{beerInfo.price} €</b>
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
       <p>
-        <Flag name={country.code} />
-        {country.country_name}
+        <Flag name={beerInfo.code} />
+        {beerInfo.country_name}
       </p>
     </Card.Content>
   </Container>
