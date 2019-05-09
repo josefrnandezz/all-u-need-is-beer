@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { Divider, Header, Icon, Button, Table, Segment, Grid, Container } from 'semantic-ui-react';
+import { Divider, Header, Icon, Button, Table, Segment, Grid, Container, Rating } from 'semantic-ui-react';
 import DropdownControlled from "../components/DropdownControlled";
 
 const Image = styled.img`

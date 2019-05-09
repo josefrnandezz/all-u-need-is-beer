@@ -22,18 +22,19 @@ class BeerList extends Component {
     super();
     this.state = {
       beers: null,
-      beerInfo: null,
-      filter: ""
+      filter: "",
     };
   }
 
   componentDidMount() {
     Axios.get("https://api.punkapi.com/v2/beers").then(response => {
-      const Beers = response.data;
+      const Beers = response.data.map(beer => ({
+        ...beer,
+        beerInfo: BeerInfo[beer.id - 1]
+      }));
+
       this.setState({ beers: Beers });
     });
-
-    this.setState({ beerInfo: BeerInfo });
   }
 
   render() {
@@ -62,17 +63,16 @@ class BeerList extends Component {
             rows.map(row => (
               <List horizontal>
                 {row.map(element => {
-                  const beerInfo = this.state.beerInfo[element.id];
                   return (
                     <List.Item>
                       <List.Content>
                         <BeerItem
                           name={element.name}
                           image={element.image_url}
-                          beerInfo={beerInfo}
+                          beerInfo={element.beerInfo}
                           onClick={() =>
                             history.push(`/beers/${element.id}`, {
-                              beerInfo,
+                              beerInfo: element.beerInfo,
                               beer: element,
                             })
                           }

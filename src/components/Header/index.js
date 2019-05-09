@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import logo from "../../beerlogo.png"
-import { 
+import logo from "../../beerlogo.png";
+import {
   Container,
   Image,
   Menu,
@@ -61,7 +61,8 @@ class MyHeader extends Component {
               <Menu.Item>
                 <Image src={logo} size="mini"/>
               </Menu.Item>
-              <Menu.Item header as="h2">{this.props.name}</Menu.Item>
+              <Menu.Item header as="h2">{this.props.name}
+              </Menu.Item>
             </Container>
           </Menu>
         </Visibility>

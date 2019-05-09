@@ -28,7 +28,7 @@ const BeerItem = ({ name, onClick, image, beerInfo }) => (
     <Card.Content>
       <Card.Header>{shortenName(name)}</Card.Header>
       <Card.Meta>
-        <Rating disabled="true" icon="star" defaultRating={beerInfo.rating} maxRating={5} />
+        <Rating disabled="true" icon="star" rating={beerInfo.rating} maxRating={5} />
       </Card.Meta>
       <Card.Description>
         <b>{beerInfo.price} €</b>

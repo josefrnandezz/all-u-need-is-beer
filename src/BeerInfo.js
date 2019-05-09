@@ -1,11 +1,11 @@
 const BeerInfo = [
     {country_name: "Argentina", code: "ar", price: 3.5, rating: 3, delay: 10},
     {country_name: "Belgium", code: "be", price: 2.81, rating: 4, delay: 5},
-    {country_name: "Spain", code: "es", price: 2.05, rating: 5, delay: 2},
+    {country_name: "Poland", code: "pl", price: 2.48, rating: 3, delay: 5},
     {country_name: "Germany", code: "de", price: 3.27, rating: 4, delay: 5},
     {country_name: "Hungary", code: "hu", price: 3.99, rating: 4, delay: 5},
     {country_name: "Sweden", code: "se", price: 2.99, rating: 2, delay: 5},
-    {country_name: "Poland", code: "pl", price: 2.48, rating: 3, delay: 5},
+    {country_name: "Spain", code: "es", price: 2.05, rating: 5, delay: 2},
     {country_name: "Denmark", code: "dk", price: 4.57, rating: 4, delay: 6},
     {country_name: "Canada", code: "ca", price: 5.07, rating: 4, delay: 10},
     {country_name: "Brazil", code: "br", price: 3.79, rating: 3, delay: 10},
@@ -14,18 +14,16 @@ const BeerInfo = [
     {country_name: "Bulgaria", code: "bg", price: 3.59, rating: 4, delay: 6},
     {country_name: "Germany", code: "de", price: 3.21, rating: 3, delay: 5},
     {country_name: "Japan", code: "jp", price: 5.67, rating: 5, delay: 12},
+    {country_name: "Spain", code: "es", price: 1.87, rating: 3, delay: 2},
     {country_name: "South Korea", code: "kr", price: 5.20, rating: 3, delay: 12},
     {country_name: "Turkey", code: "tr", price: 4.27, rating: 3, delay: 7},
     {country_name: "United Kingdom", code: "gb", price: 3.78, rating: 4, delay: 4},
     {country_name: "Czech Republic", code: "cz", price: 2.45, rating: 5, delay: 5},
-    {country_name: "Spain", code: "es", price: 1.87, rating: 3, delay: 2},
     {country_name: "Belgium", code: "be", price: 2.23, rating: 5, delay: 5},
     {country_name: "Croatia", code: "hr", price: 2.64, rating: 4, delay: 6},
-    {country_name: "Estonia", code: "ee", price: 2.14, rating: 2, delay: 5},
     {country_name: "Greece", code: "gr", price: 2.40, rating: 5, delay: 6},
     {country_name: "Italy", code: "it", price: 3.50, rating: 4, delay: 4},
     {country_name: "China", code: "cn", price: 6.41, rating: 3, delay: 12},
-    
 ];
 
 export default BeerInfo;
